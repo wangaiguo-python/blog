@@ -1,6 +1,7 @@
 from django.db import models
 from collections import defaultdict
 import datetime
+from django.core.urlresolvers import reverse
 # Create your models here.
 
 class ArticleManage(models.Manager):
@@ -37,6 +38,10 @@ class Article(models.Model):
 
     class Meta:
         ordering = ['-last_modified_time']
+
+    def get_absolute_url(self):
+        # reverse 解析 blog:detail 视图函数对应的url
+        return reverse('blog:detail', kwargs={'article_id': self.pk})
 
 
 class Category(models.Model):
