@@ -22,7 +22,7 @@
                 <div id="bd" class="wrp clear-fix">
                     <div id="main">
                         {% load paginate_tags %}
-                        {% paginate article_list 2 %}
+                        {% paginate article_list 5 %}
                         {% for article in article_list %}
                             <div class="post">
                                 <div class="post-hd">
@@ -59,7 +59,7 @@
                 <!-- archive -->
                 <h3>文章归档：</h3>
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                    {% for year,months,days in date_archive %}
+                    {% for year,months in date_archive %}
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="heading{{ forloop.counter }}">
                                 <h4 class="panel-title">
